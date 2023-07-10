@@ -68,7 +68,7 @@ do {
 
 // Array con el listado de salarios
 
-const listaDeSalarios = []
+let listaDeSalarios = []
 
 listaDeSalarios.push(ultimoSalario, anteUltimoSalario)
 
@@ -101,8 +101,7 @@ let persona = {
     salarioPromedio: salarioPromedio, 
     sumatoriaDeSalarios: sumatoriaDeSalarios,
     prestamoPosible: resultadoHipoteca,
-    salariosListados: listaDeSalarios
+    salariosListados: listaDeSalarios,
 }
 
 console.table(persona)
-
