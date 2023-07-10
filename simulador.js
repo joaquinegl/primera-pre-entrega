@@ -1,3 +1,20 @@
+//Función para hacer los cálculos relativos al salario
+
+function calcular(a, b, operacion) {
+    return operacion(a,b);
+}
+
+function sumaDeSalarios(a, b) {
+    return a + b; 
+}
+
+function promedioDeSalarios(a, b){
+    return (a+b)/2;
+}
+
+
+// Función para hacer los cálculos relativos al préstamo
+
 function calcularHipoteca(salarioPromedio) {
 
     if (salarioPromedio > 10000) {
@@ -11,6 +28,10 @@ function calcularHipoteca(salarioPromedio) {
     if (salarioPromedio < 1000)
         return salarioPromedio * 200
 }
+
+
+
+// Variables con los datos de la persona y sus salarios
 
 let nombre = prompt("Ingrese su nombre completo")
 let edad = prompt("Ingrese su edad")
@@ -30,7 +51,6 @@ do {
 } while (ultimoSalario <= 0 || isNaN(ultimoSalario))
 
 
-
 let anteUltimoSalario
 do {
     anteUltimoSalario = parseInt(prompt("Ingrese el salario bruto mensual de su trabajo anterior"))
@@ -46,23 +66,31 @@ do {
 
 
 
+// Array con el listado de salarios
+
 const listaDeSalarios = []
 
 listaDeSalarios.push(ultimoSalario, anteUltimoSalario)
-console.log(listaDeSalarios)
 
 
-function calcularPromedio(valor1, valor2){
-    return(valor1 + valor2)/2
-} 
+
+// Utilización de las funciones para el cálculo de los salarios (promedio y suma)
+
+let salarioPromedio = calcular(ultimoSalario, anteUltimoSalario, promedioDeSalarios) 
+
+let sumatoriaDeSalarios = calcular(ultimoSalario, anteUltimoSalario, sumaDeSalarios)
 
 
-let salarioPromedio = calcularPromedio(ultimoSalario, anteUltimoSalario)
+
+// Utilización de la función para calcular el préstamo
 
 let resultadoHipoteca = calcularHipoteca(salarioPromedio)
 
 alert("Nuestro banco puede ofrecerte " + resultadoHipoteca + " patacones" + " Sr/a " + nombre)
 
+
+
+// Objeto con todos los datos de la persona
 
 let persona = {
     nombre: nombre,
@@ -71,7 +99,9 @@ let persona = {
     salarioActual: ultimoSalario, 
     salarioAnterior: anteUltimoSalario,
     salarioPromedio: salarioPromedio, 
-    prestamoPosible: resultadoHipoteca
+    sumatoriaDeSalarios: sumatoriaDeSalarios,
+    prestamoPosible: resultadoHipoteca,
+    salariosListados: listaDeSalarios
 }
 
 console.table(persona)
